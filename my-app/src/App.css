@@ -1,0 +1,85 @@
+/* App.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: white;
+}
+
+.App {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.search-bar input {
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #b20710;
+}
+
+.add-movie-form input {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+}
+
+.add-movie-form button {
+  padding: 10px;
+  background-color: #1db954;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.add-movie-form button:hover {
+  background-color: #15883e;
+}
+
+.movies-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.movie-card {
+  background-color: #242424;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 200px;
+}
+
+.movie-card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.movie-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #e50914;
+  text-decoration: none;
+}
+
+.movie-card a:hover {
+  text-decoration: underline;
+}
+
+
