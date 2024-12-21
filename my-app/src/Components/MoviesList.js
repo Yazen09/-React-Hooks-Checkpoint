@@ -9,13 +9,15 @@ const MoviesList = () => {
   const [filteredMovies, setFilteredMovies] = useState(moviesData);
   const [movies, setMovies] = useState(moviesData); // Liste complète des films
 
-  // États pour les informations du nouveau film
   const [newMovie, setNewMovie] = useState({
     title: "",
     description: "",
     posterUrl: "",
     rate: 0,
   });
+
+  // Nouvel état pour contrôler la visibilité du formulaire
+  const [showAddMovieForm, setShowAddMovieForm] = useState(false);
 
   // Fonction pour ajouter un film
   const handleAddMovie = () => {
@@ -28,6 +30,7 @@ const MoviesList = () => {
       setMovies([...movies, { ...newMovie, id: movies.length + 1 }]);
       setFilteredMovies([...movies, { ...newMovie, id: movies.length + 1 }]);
       setNewMovie({ title: "", description: "", posterUrl: "", rate: 0 }); // Réinitialise les champs
+      setShowAddMovieForm(false); // Ferme le formulaire après ajout
     } else {
       alert("Please fill in all the fields before adding a movie.");
     }
@@ -71,51 +74,60 @@ const MoviesList = () => {
         <button onClick={handleSearch}>Search</button>
       </div>
 
+      {/* Bouton pour afficher le formulaire d'ajout */}
+      <button onClick={() => setShowAddMovieForm(!showAddMovieForm)}>
+        {showAddMovieForm ? "Close Form" : "Add Movie"}
+      </button>
+
       {/* Formulaire pour ajouter un nouveau film */}
-      <div className="add-movie-form">
-        <h3>Add a New Movie</h3>
-        <input
-          type="text"
-          placeholder="Title"
-          value={newMovie.title}
-          onChange={(e) =>
-            setNewMovie({ ...newMovie, title: e.target.value })
-          }
-        />
-        <textarea
-          placeholder="Description"
-          value={newMovie.description}
-          onChange={(e) =>
-            setNewMovie({ ...newMovie, description: e.target.value })
-          }
-        ></textarea>
-        <input
-          type="text"
-          placeholder="Poster URL"
-          value={newMovie.posterUrl}
-          onChange={(e) =>
-            setNewMovie({ ...newMovie, posterUrl: e.target.value })
-          }
-        />
-        <ReactStars
-          count={5}
-          size={24}
-          activeColor="#ffd700"
-          value={newMovie.rate}
-          isHalf={false}
-          onChange={(newRating) =>
-            setNewMovie({ ...newMovie, rate: newRating })
-          }
-        />
-        <button onClick={handleAddMovie}>Add Movie</button>
-      </div>
+      {showAddMovieForm && (
+        <div className="add-movie-form">
+          <h3>Add a New Movie</h3>
+          <input
+            type="text"
+            placeholder="Title"
+            value={newMovie.title}
+            onChange={(e) =>
+              setNewMovie({ ...newMovie, title: e.target.value })
+            }
+          />
+          <textarea
+            placeholder="Description"
+            value={newMovie.description}
+            onChange={(e) =>
+              setNewMovie({ ...newMovie, description: e.target.value })
+            }
+          ></textarea>
+          <input
+            type="text"
+            placeholder="Poster URL"
+            value={newMovie.posterUrl}
+            onChange={(e) =>
+              setNewMovie({ ...newMovie, posterUrl: e.target.value })
+            }
+          />
+          <ReactStars
+            count={5}
+            size={24}
+            activeColor="#ffd700"
+            value={newMovie.rate}
+            isHalf={false}
+            onChange={(newRating) =>
+              setNewMovie({ ...newMovie, rate: newRating })
+            }
+          />
+          <button onClick={handleAddMovie}>Submit</button>
+        </div>
+      )}
 
       {/* Liste des films filtrés */}
       <div className="movies-list">
         {filteredMovies.map((movie) => (
           <MovieCard key={movie.id} {...movie} />
         ))}
-        {filteredMovies.length === 0 && <p>No movies found with the current filters.</p>}
+        {filteredMovies.length === 0 && (
+          <p>No movies found with the current filters.</p>
+        )}
       </div>
     </div>
   );

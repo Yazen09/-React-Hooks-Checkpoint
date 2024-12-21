@@ -1,23 +1,15 @@
 import React from "react";
 import ReactStars from "react-rating-stars-component";
+import { Link } from "react-router-dom";
 
-const MovieCard = ({ title, rate, description, posterUrl, trailer }) => {
+const MovieCard = ({ id, title, rate, description, posterUrl }) => {
   return (
     <div className="movie-card">
-      <img src={posterUrl} alt={title} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-      {/* Étoiles affichant la note */}
-      <ReactStars
-        count={5}
-        size={20}
-        activeColor="#ffd700"
-        value={rate}
-        edit={false} // Les étoiles ne sont pas éditables ici
-      />
-      <a href={trailer} target="_blank" rel="noopener noreferrer">
-        Watch Trailer
-      </a>
+      <Link to={`/movie/${id}`} style={{ textDecoration: "none", color: "black" }}>
+        <img src={posterUrl} alt={title} />
+        <h3>{title}</h3>
+        <ReactStars count={5} size={20} value={rate} edit={false} activeColor="#ffd700" />
+      </Link>
     </div>
   );
 };

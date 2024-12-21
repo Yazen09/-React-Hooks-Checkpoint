@@ -1,85 +1,139 @@
 /* App.css */
 
+/* Police vintage */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Lora', serif; /* Nouvelle police */
   margin: 0;
   padding: 0;
-  background-color: #121212;
-  color: white;
+  background-color: white; /* Fond vintage beige */
+  color: #2d2d2d; /* Texte sombre */
 }
 
 .App {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  text-align: center; /* Centre global des éléments */
+}
+
+/* Barre de recherche et étoiles alignées */
+.search-bar {
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Alignement vertical */
+  gap: 10px; /* Espacement entre les éléments */
+  margin-bottom: 20px;
 }
 
 .search-bar input {
-  margin: 5px;
   padding: 10px;
   font-size: 16px;
+  width: 300px;
+  border: 2px solid #aa9270;
+  border-radius: 5px;
+  background-color: #faf4e6;
 }
 
 .search-bar button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #e50914;
+  background-color: #d9a46c; /* Couleur bouton vintage */
   color: white;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .search-bar button:hover {
-  background-color: #b20710;
+  background-color: #b37c4c;
+  transform: scale(1.05);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.rating-stars {
+  font-size: 18px; /* Taille des étoiles */
+  color: #b37c4c; /* Couleur vintage */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ajout de film */
+.add-movie-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .add-movie-form input {
-  display: block;
-  margin: 10px 0;
   padding: 10px;
-  width: 100%;
+  font-size: 14px;
+  width: 300px;
+  border: 2px solid #aa9270;
+  border-radius: 5px;
+  background-color: #faf4e6;
 }
 
 .add-movie-form button {
-  padding: 10px;
-  background-color: #1db954;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #6c9378; /* Couleur verte vintage */
   color: white;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .add-movie-form button:hover {
-  background-color: #15883e;
+  background-color: #547d5f;
+  transform: scale(1.05);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Liste des films */
 .movies-list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center; /* Centre les cartes de films */
 }
 
 .movie-card {
-  background-color: #242424;
+  background-color: #e6d4b8; /* Fond vintage pour les cartes */
   padding: 20px;
   border-radius: 8px;
   text-align: center;
   width: 200px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .movie-card img {
   max-width: 100%;
   border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .movie-card a {
   display: inline-block;
   margin-top: 10px;
-  color: #e50914;
+  color: #b37c4c; /* Lien couleur vintage */
   text-decoration: none;
 }
 
 .movie-card a:hover {
   text-decoration: underline;
 }
-
-
